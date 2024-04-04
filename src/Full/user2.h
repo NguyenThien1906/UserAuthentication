@@ -25,6 +25,10 @@ private:
 public:
     string userID;
 
+    void setnewTimestamp(){
+        this->timestamp = Timestamp();
+    }
+
     string convertMessage(){
         return userID + "," + to_string(timestamp);
     }
@@ -90,13 +94,3 @@ void sendMsgToTGS(const string &tgt, tgsReq &req, const string &ua, string &tgsR
     close(clientSocket);
     
 }
-
-/*
-int main() {
-    // send message to TGS (TGT, tgsReq, UA)
-    tgsReq req;
-    req.serviceID = "usertest123";
-    req.ticketLifetime = 10000;
-    sendMsgToTGS("user1,tgsid,10000,1080,10000,tgssessionkey", req, "user1,10000");
-    return 0;
-}*/

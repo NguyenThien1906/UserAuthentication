@@ -37,7 +37,7 @@ public:
 	string serviceSessionKey;
 
     string convertMessage() {
-        return userID + "," + serviceID + "," + to_string(timestamp) + to_string(userPort) + to_string(serviceTicketLifetime) + serviceSessionKey;
+        return userID + "," + serviceID + "," + to_string(timestamp) + "," + to_string(userPort) + "," + to_string(serviceTicketLifetime) + "," + serviceSessionKey;
     }
 };
 /*

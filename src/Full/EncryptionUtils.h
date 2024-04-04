@@ -3,16 +3,30 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include <chrono>
 
 #define AS_PORT 8080
 #define TGS_PORT 8081
+#define SERVICE_PORT 8082
 #define MAX_BUFFER 1048576
 
 const std::string clientSecretKey = "clientsecretkey11223";
 const std::string tgsID = "ticketgrantingserviceID"; 
 const std::string tgsSecretKey = "ticketseeeeeeKEY";
 const std::string serviceSecretKey = "servicesecretkey";
+
+int strToInt(const std::string& str){
+    int ans = 0;
+    for(int i=0; i<str.length(); i++){
+        if(str[i] > '9' || str[i] < '0'){
+            printf("Error strToInt.\n");
+            return -1;
+        }
+        ans = ans*10 + str[i] - '0';
+    }
+    return ans;
+}
 
 std::int64_t Timestamp(){
     return std::chrono::duration_cast<std::chrono::seconds>
@@ -37,6 +51,23 @@ std::string decrypt(const std::string &ciphertext, const std::string &key) {
         decrypted.push_back(decChar);
     }
     return decrypted;
+}
+
+std::vector<std::string> extractData(std::string str){
+    std::string temp_str = "";
+	std::vector<std::string> data;
+	for(int i=0; i<str.length(); i++){
+		if(str[i] == ','){
+			data.push_back(temp_str);
+            temp_str = "";
+		}
+        else{
+            temp_str += (char) str[i];
+        }
+	}
+	if(temp_str!="")
+        data.push_back(temp_str);
+	return data;
 }
 
 #endif

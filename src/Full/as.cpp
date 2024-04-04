@@ -83,21 +83,6 @@ public:
     }
 };
 
-std::vector<std::string> extractData(std::string str){
-	int temp_ctr = 0;
-	std::vector<std::string> data;
-	for(int i=0; i<str.length(); i++){
-		if(str[i] == ','){
-			data.push_back(str.substr(temp_ctr, i));
-			temp_ctr = i+1;
-		}
-	}
-	if(temp_ctr != str.length()){ // final element
-		data.push_back(str.substr(temp_ctr, str.length()));
-	}
-	return data;
-}
-
 bool TGTReq_check(std::vector<std::string> data){
 	// check expected size 4
 	if(data.size() != 4)
@@ -144,6 +129,7 @@ int main(){
 	// check data
 	if(!TGTReq_check(tgtReqData)){
 		printf("Data check failed.\n");
+		close(serverSocket);
 		return 0;
 	}
 	std::cout << "TGT request accepted" << std::endl;
