@@ -1,0 +1,6 @@
+Client can connect to service
+Client sent a serialize message contain UA and ticket (im assuming UA and ticket are encrypted sperately)
+Service receive message and deserialize the message to get message1 (UA data) and message2(Ticket data)
+Service is then using those data and testfunction to see if everything is valid and send that back to Client.
+
+More testing need to be done, especially by replacing timestamp
