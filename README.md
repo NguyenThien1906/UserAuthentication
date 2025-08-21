@@ -1,6 +1,4 @@
-project-name/
-
-VNU - University of Science
+VNU - University of Science\
 Class 21MMT - Encryption and Application 
 
 # *Understanding User Authentication and look into Kerberos*
