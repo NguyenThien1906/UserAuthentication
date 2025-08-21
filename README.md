@@ -23,7 +23,7 @@ This GitHub repository includes the following main folders
 
 We demonstrated a case of client authentication to a service server (SS) by Kerberos negotiations protocol.
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Kerberos_protocol.svg/500px-Kerberos_protocol.svg.png)
+<img title="Kerberos" src="images/kerberos.png" alt="" class="white-bg">
 
 Our Kerberos implementation consists of 3 steps which we divided into according folders and source codes as follows:
 
